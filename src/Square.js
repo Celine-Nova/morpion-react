@@ -1,15 +1,17 @@
+import { render } from '@testing-library/react';
 import React from 'react';
 import './App.css';
 
 function Square(props) {
-    return (
-        // Quand on clique sur un Square, la fonction onClick fournie par le Board est appelée
-      <button className="square" onClick={props.onClick}>
+   return (
+    // Quand on clique sur un Square, la fonction onClick fournie par le Board est appelée
+    <button className="square" onClick={props.onClick}>
         {props.value}
-      </button>
-    );
+    </button>
+    
+    );  
   }
-export default Square;
+  export default Square;
 
 // Ancien code avec Class Square
 /*

@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# MORPION
+J'ai suivi le tuto du site REACT sur le jeu morpion afin de m'autoformer sur la bibliothèque REACT.
+Vous pouvez y faire une partie en cliquant [ici](https://celine-nova.github.io/morpion-react/) 
+*************
+![page d'accueil](public/morpion.jpg "page d'accueil")
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

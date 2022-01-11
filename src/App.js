@@ -20,19 +20,21 @@ export default class Board extends React.Component{
   // La méthode slice() renvoie un objet tableau, contenant une copie superficielle. Le tableau original ne sera pas modifié.
   handleClick(i) {
     const squares = this.state.squares.slice();
-    //  Si quelqu'un a déjà gané ou si la case est déja remplie
+  
+    //  Si quelqu'un a déjà gagné ou si la case est déja remplie
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
     // condition opérateur ternaire
     squares[i] =  this.state.xIsNext ? 'X' : 'O';
+  
     this.setState({
       squares: squares,
       xIsNext: !this.state.xIsNext,
     });
   }
   renderSquare(i) {
-      return <Square
+        return <Square
       // je renvoie l'etat du tableau à mon composant enfant Square
         value={this.state.squares[i]} 
         onClick={() => this.handleClick(i)}
