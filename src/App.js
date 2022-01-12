@@ -1,7 +1,9 @@
 // import logo from './logo.svg';
 import './App.css';
-import Square from './Square';
 import React from 'react';
+import Square from './Square';
+import Newgame from './Newgame';
+import { render } from 'react-dom';
 // import ReactDOM from 'react-dom';
 // import './index.css';
 export default class Board extends React.Component{
@@ -14,7 +16,9 @@ export default class Board extends React.Component{
       squares: Array(9).fill(null),
       // Chaque fois qu’un joueur interviendra, xIsNext (un booléen) sera basculé afin de déterminer à qui appartiendra le prochain tour, et l’état du jeu sera sauvegardé. Mettons à jour la fonction handleClick de Board pour basculer la valeur de xIsNext :
       xIsNext: true,
+      showButtonNewGame: true,
     };
+    this.handleNewGame = this.handleNewGame.bind(this)
   }
   // je definie la function handleClick
   // La méthode slice() renvoie un objet tableau, contenant une copie superficielle. Le tableau original ne sera pas modifié.
@@ -34,43 +38,71 @@ export default class Board extends React.Component{
     });
   }
   renderSquare(i) {
-        return <Square
+    return <Square
       // je renvoie l'etat du tableau à mon composant enfant Square
         value={this.state.squares[i]} 
         onClick={() => this.handleClick(i)}
         />;
+  } 
+  handleNewGame(){
+    const squares = this.state.squares.slice();
+    console.log('console ' + squares)
+    let removeSquare = squares.splice(squares.length)
+    console.log(removeSquare)
+    this.setState({
+      squares: removeSquare,
+      showButtonNewGame: !this.state.showButtonNewGame
+  
+    });
+  }
+  renderNewGame() {
+    // const winner = calculateWinner(this.state.squares);
+    // const squares = this.state.squares.slice();
+    // if (winner) {
+    return <Newgame
+      onClick={() => this.handleNewGame()}
+      />
+    // }
   }
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      if(winner === 'X'){
-      status =  <p style={{color:'red'}}>Joueur 1 {winner} a gagné</p>
-      } else {
-        status =  <p style={{color:'blue'}}>Joueur 2 {winner} a gagné</p>
-      }
-    } else {
-      status = 'Prochain joueur : ' + (this.state.xIsNext ? 'joueur 1 X' : 'joueur 2 O');
+        if(winner === 'X'){
+        status =  <p style={{color:'red'}}>Joueur 1 {winner} a gagné </p>
+        } else {
+          status =  <p style={{color:'blue'}}>Joueur 2 {winner} a gagné</p>
+        }     
+    }else{
+       status = 'Prochain joueur : ' + (this.state.xIsNext ? 'joueur 1 X' : 'joueur 2 O');
     }
     return (
       <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
+        <div>
+          <div className="status">{status}</div>
+          <div className="board-row">
+            {this.renderSquare(0)}
+            {this.renderSquare(1)}
+            {this.renderSquare(2)}
+          </div>
+          <div className="board-row">
+            {this.renderSquare(3)}
+            {this.renderSquare(4)}
+            {this.renderSquare(5)}
+          </div>
+          <div className="board-row">
+            {this.renderSquare(6)}
+            {this.renderSquare(7)}
+            {this.renderSquare(8)}
+          </div>
         </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
+        <div className='new-game'>
+          {/* <button className="newgame"  style={{color:'purple'}}  onClick={this.handleNewGame}> 
+            rejouez 
+          </button> */}
+          {this.renderNewGame()}
         </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
+    </div>
     );
   } 
 }
@@ -88,8 +120,8 @@ export default class Board extends React.Component{
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
+      if (squares[a] && squares[c] === squares[b] && squares[a] === squares[c]) {
+        return squares[a]
       }
     }
     return null;

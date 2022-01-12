@@ -1,11 +1,12 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 import './App.css';
+
 
 function Square(props) {
 
   const value = props.value;
   return (
+    <div>
     <div>
       {value === 'X'? (
         // Quand on clique sur un Square, la fonction onClick fournie par le Board est appelée
@@ -14,10 +15,12 @@ function Square(props) {
         </button>)
       :(
         <button className="square"  style={{color:'blue'}} onClick={props.onClick}>
-        {props.value}
+        {value}
       </button>
       )
       }
+    </div>
+    
     </div>
     ); 
   }
