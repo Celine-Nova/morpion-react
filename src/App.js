@@ -44,7 +44,11 @@ export default class Board extends React.Component{
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status =  `Joueur  ${winner} a gagné`
+      if(winner === 'X'){
+      status =  <p style={{color:'red'}}>Joueur 1 {winner} a gagné</p>
+      } else {
+        status =  <p style={{color:'blue'}}>Joueur 2 {winner} a gagné</p>
+      }
     } else {
       status = 'Prochain joueur : ' + (this.state.xIsNext ? 'joueur 1 X' : 'joueur 2 O');
     }
