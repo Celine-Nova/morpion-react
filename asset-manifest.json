@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/morpion-react/static/css/main.c7646203.css",
-    "main.js": "/morpion-react/static/js/main.cc63dffb.js",
+    "main.css": "/morpion-react/static/css/main.ca83c5fe.css",
+    "main.js": "/morpion-react/static/js/main.b8530688.js",
     "static/js/787.2c0faf64.chunk.js": "/morpion-react/static/js/787.2c0faf64.chunk.js",
     "index.html": "/morpion-react/index.html",
-    "main.c7646203.css.map": "/morpion-react/static/css/main.c7646203.css.map",
-    "main.cc63dffb.js.map": "/morpion-react/static/js/main.cc63dffb.js.map",
+    "main.ca83c5fe.css.map": "/morpion-react/static/css/main.ca83c5fe.css.map",
+    "main.b8530688.js.map": "/morpion-react/static/js/main.b8530688.js.map",
     "787.2c0faf64.chunk.js.map": "/morpion-react/static/js/787.2c0faf64.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c7646203.css",
-    "static/js/main.cc63dffb.js"
+    "static/css/main.ca83c5fe.css",
+    "static/js/main.b8530688.js"
   ]
 }
